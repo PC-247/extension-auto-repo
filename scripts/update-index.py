@@ -40,10 +40,15 @@ for source in merged_sources:
         unique_sources.append(source)
         seen_ids.add(source['id'])
 
-final_index = {"sources": unique_sources}
+final_index = {
+    "repository": {
+        "name": "Extension Auto Repo",
+        "version": 1
+    },
+    "sources": unique_sources
+}
 
 with open("index.min.json", "w", encoding="utf-8") as f:
     json.dump(final_index, f, separators=(",", ":"))
 
 print("index.min.json generated successfully.")
-      
